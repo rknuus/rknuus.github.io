@@ -18,6 +18,9 @@ end
 # Theme configured in _config.yml
 gem "jekyll-theme-hacker", "~> 0.2.0"
 
+# Web server for local test runs
+gem "webrick"
+
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do
