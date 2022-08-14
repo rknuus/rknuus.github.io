@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8" />
+			<title>Feature teams revisited: failure modes of feature teams</title>
+            <link rel="stylesheet" type="text/css" href="/css/boot-journal.css">
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.css">
+			<link rel="alternate" type="application/rss+xml" title="AQ - Agility & Quality"
+href="/feed.xml">
+
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071141-1"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'UA-159071141-1');
+			</script>
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	        		<li><a href="/">Home</a></li>
+	        		<li><a href="/agility-and-quality/">AQ - Agility & Quality blog home</a></li>
+		        	<li><a href="/agility-and-quality/tags">Tags</a></li>
+		        	<li><a href="/agility-and-quality/about">About</a></li>
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			<h1>Feature teams revisited: failure modes of feature teams</h1>
+<div class="post-metadata">
+  <div class="post-date">
+    <i class="far fa-calendar"></i> 11 Jun 2020
+  </div>
+  <div class="post-tags">
+    
+    <i class="fas fa-tags"></i> 
+      <a href="/agility-and-quality/tags/#agility">agility</a>, 
+    
+      <a href="/agility-and-quality/tags/#development-process">development-process</a>
+    
+  </div>
+  <div class="post-read-time">
+    
+    <i class="far fa-clock"></i> 2 mins
+  </div>
+</div>
+
+<div class="post">
+  <div class="paragraph">
+<p>In <a href="../../../2019/11/30/feature-teams-are-cheaper-and-faster.html">Feature teams are cheaper and faster</a> I made a strong case for feature teams. After taking an <a href="https://www.gotoacademy.nl/collections/architecture-with-agility-kevlin-henney">Architecture with Agility masterclass</a> hosted by Kevlin Henney I revised my view.</p>
+</div>
+<div class="paragraph">
+<p>The arguments presented <a href="../../../2019/11/30/feature-teams-are-cheaper-and-faster.html">earlier</a> are based on the failure mode of component teams: that delays can propagate through the organization and that consequently the need for management grows superlinearly.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_Accident_1920700.svg" alt="noun Accident 1920700">
+</div>
+</div>
+<div class="paragraph">
+<p>But feature teams are not a <a href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.117.315">silver bullet</a>. Feature teams have a failure mode, too. Feature teams might require a broad set of skills, which can be overwhelming and lead to low throughput or poor quality because a generalist can&#8217;t dedicate the same amount of time to a particular skill as a specialist.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_Silver-Bullet_314511.svg" alt="noun Silver Bullet 314511">
+</div>
+</div>
+<div class="paragraph">
+<p>So it depends on your particular context whether a component team or a feature team makes more sense. The <a href="https://www.gotoacademy.nl/collections/architecture-with-agility-kevlin-henney">masterclass</a> nicely demonstrated why it is crucial to design your organization <a href="http://www.melconway.com/Home/pdf/committees.pdf">"according to the need for communication"</a> (Melvin Conway). Some organization design criteria could be:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. selection of criteria pro/contra feature teams</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">criterion</th>
+<th class="tableblock halign-left valign-top">favors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">features require common skillset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feature team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">features require broad skillset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">component team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">features require deep domain knowledge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feature team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">features require deep component knowledge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">component team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">high need for communication about feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feature team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">high need for communication about skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">component team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">faster business value delivery</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feature team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">higher code quality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">component team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minimize WIP, handovers, and delays</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feature team</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This relativization should be considered when reading Ron Jeffries' book <a href="https://pragprog.com/book/rjnsd/the-nature-of-software-development">The Nature of Software Development</a>, because he focuses on the strengths of feature team and the weaknesses of component teams, but doesn&#8217;t cover the full picture.</p>
+</div>
+</div>
+			
+			</div><!-- /.container -->
+			<footer>
+				<p>Feedback is much appreciated by <a href="mailto:rknuus@gmail.com">email</a>. Thanks.</p>
+			</footer>
+		</body>
+	</html>

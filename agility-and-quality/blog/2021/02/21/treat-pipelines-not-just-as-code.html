@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8" />
+			<title>Treat CI/CD pipelines not just as code</title>
+            <link rel="stylesheet" type="text/css" href="/css/boot-journal.css">
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.css">
+			<link rel="alternate" type="application/rss+xml" title="AQ - Agility & Quality"
+href="/feed.xml">
+
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071141-1"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'UA-159071141-1');
+			</script>
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	        		<li><a href="/">Home</a></li>
+	        		<li><a href="/agility-and-quality/">AQ - Agility & Quality blog home</a></li>
+		        	<li><a href="/agility-and-quality/tags">Tags</a></li>
+		        	<li><a href="/agility-and-quality/about">About</a></li>
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			<h1>Treat CI/CD pipelines not just as code</h1>
+<div class="post-metadata">
+  <div class="post-date">
+    <i class="far fa-calendar"></i> 21 Feb 2021
+  </div>
+  <div class="post-tags">
+    
+    <i class="fas fa-tags"></i> 
+      <a href="/agility-and-quality/tags/#agility">agility</a>, 
+    
+      <a href="/agility-and-quality/tags/#devops">devops</a>, 
+    
+      <a href="/agility-and-quality/tags/#quality">quality</a>
+    
+  </div>
+  <div class="post-read-time">
+    
+    <i class="far fa-clock"></i> 1 mins
+  </div>
+</div>
+
+<div class="post">
+  <div class="paragraph">
+<p>In a larger organization I recently observed several teams migrating automated build infrastructure to CI/CD pipelines using <a href="https://www.jenkins.io/">Jenkins</a> 2. But for reasons I might not fully understand, the pipeline code turned out to be complicated, non-reusable, and was tested manually. In short, it reminded me of software development practices of the past.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_Human%20Evolution_796941.svg" alt="noun Human Evolution 796941">
+</div>
+</div>
+<div class="paragraph">
+<p>Certainly, one of the reasons is the <a href="https://medium.com/the-devops-corner/the-evolution-of-ci-cd-763df723f05b">growing complexity</a> of CI/CD infrastructure requiring ever more skills. That&#8217;s why it might make sense to delegate complexity to <a href="https://medium.com/the-devops-corner/should-you-build-your-own-ci-server-9439c77bf038">specialists</a>. But perhaps another cause is sloppy engineering. As if software engineers still treat pipelines like trivial build scripts, not fully acknowledging the consequences of <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">infrastructure as code</a>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_quality_1725381.svg" alt="noun quality 1725381">
+</div>
+</div>
+<div class="paragraph">
+<p>So <em>if</em> you opt to maintain your own CI/CD infrastructure I&#8217;m arguing to treat pipelines not just as code, but as production code. This means:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Design pipelines instead of making them up ad-hoc. Example: cleanly separate different configuration scopes component-specific<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> (like installing component-specific build dependencies), team-specific (like where to publish build artifacts), and shared (e.g. if the entire organization uses the same static code analysis infrastructure).</p>
+</li>
+<li>
+<p>If useful, share common functionality in <a href="https://hackernoon.com/simplifying-jenkinsfiles-c97cfee13f83">modules</a> and building blocks.</p>
+</li>
+<li>
+<p>Keep pipelines simple e.g. by following the paradigm <a href="https://en.wikipedia.org/wiki/Convention_over_configuration">convention over configuration</a>.</p>
+</li>
+<li>
+<p>Cover essential complexity by <a href="https://github.com/jenkinsci/JenkinsPipelineUnit">tests</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Simplicity might feel like a challenge. A sketch of an elegant pipeline design was posted on <a href="https://www.reddit.com/r/devops/comments/aa4qi7/simplify_your_jenkinsfiles/eedkqxl/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">reddit</a>. A more tangible solution for modular <a href="https://www.jenkins.io/">Jenkins</a> pipelines is <a href="https://github.com/griddynamics/mpl">MPL</a>. It supports reuse of pipelines and building blocks, overriding general building blocks by specialized ones, and it demonstrates how to test pipelines based on <a href="https://github.com/jenkinsci/JenkinsPipelineUnit">JenkinsPipelineUnit</a>.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. assuming that one team maintains multiple components
+</div>
+</div>
+</div>
+			
+			</div><!-- /.container -->
+			<footer>
+				<p>Feedback is much appreciated by <a href="mailto:rknuus@gmail.com">email</a>. Thanks.</p>
+			</footer>
+		</body>
+	</html>

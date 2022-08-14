@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8" />
+			<title>Up and GoogleTesting in Minutes</title>
+            <link rel="stylesheet" type="text/css" href="/css/boot-journal.css">
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.css">
+			<link rel="alternate" type="application/rss+xml" title="AQ - Agility & Quality"
+href="/feed.xml">
+
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071141-1"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'UA-159071141-1');
+			</script>
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	        		<li><a href="/">Home</a></li>
+	        		<li><a href="/agility-and-quality/">AQ - Agility & Quality blog home</a></li>
+		        	<li><a href="/agility-and-quality/tags">Tags</a></li>
+		        	<li><a href="/agility-and-quality/about">About</a></li>
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			<h1>Up and GoogleTesting in Minutes</h1>
+<div class="post-metadata">
+  <div class="post-date">
+    <i class="far fa-calendar"></i> 15 Apr 2020
+  </div>
+  <div class="post-tags">
+    
+    <i class="fas fa-tags"></i> 
+      <a href="/agility-and-quality/tags/#c++">c++</a>, 
+    
+      <a href="/agility-and-quality/tags/#howto">howto</a>, 
+    
+      <a href="/agility-and-quality/tags/#quality">quality</a>, 
+    
+      <a href="/agility-and-quality/tags/#testing">testing</a>
+    
+  </div>
+  <div class="post-read-time">
+    
+    <i class="far fa-clock"></i> 4 mins
+  </div>
+</div>
+
+<div class="post">
+  <div class="paragraph">
+<p>Setting up testing infrastructure for new C++ projects without aid of IDEs can be a nuisance. This article presents an approach which should get you started within minutes. All you need is a recent CMake version: 3.14 or newer will work<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>. For demonstration purposes we will use <a href="https://github.com/google/googletest">GoogleTest</a> version 1.10. Of course, the approach also works for other CMake-ready testing frameworks.</p>
+</div>
+<div class="paragraph">
+<p>Append the following lines to your project&#8217;s root <code>CMakeLists.txt</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">CMakeLists.txt</div>
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="cmake"><span></span><span style="color: #008000">set</span>(<span style="color: #BA2121">CMAKE_CXX_STANDARD</span> <span style="color: #BA2121">11</span>)  <span style="color: #408080; font-style: italic"># </span><i class="conum" data-value="1"></i><b>(1)</b>
+
+<span style="color: #008000">include</span>(<span style="color: #BA2121">CTest</span>)
+<span style="color: #008000">enable_testing</span>()
+<span style="color: #008000">add_subdirectory</span>(<span style="color: #BA2121">test</span>)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>GoogleTest 1.10 requires at least C++11.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now create a folder <code>test</code> and a file <code>test/CMakeLists.txt</code> containing:</p>
+</div>
+<div class="listingblock">
+<div class="title">test/CMakeLists.txt</div>
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="cmake"><table class="linenotable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span></pre></div></td><td class="code"><pre><span></span><span style="color: #008000">cmake_minimum_required</span>(<span style="color: #BA2121">VERSION</span> <span style="color: #BA2121">3.14.0</span>)  <span style="color: #408080; font-style: italic"># </span><i class="conum" data-value="1"></i><b>(1)</b>
+
+<span style="color: #008000">set</span>(<span style="color: #BA2121">TEST_EXECUTABLE</span> <span style="color: #BA2121">your-test</span>)  <span style="color: #408080; font-style: italic"># </span><i class="conum" data-value="2"></i><b>(2)</b>
+<span style="color: #008000">set</span>(<span style="color: #BA2121">TEST_NAME</span> <span style="color: #BA2121">test-name</span>)
+<span style="color: #008000">set</span>(<span style="color: #BA2121">UNIT_UNDER_TEST_INCLUDE_DIR</span> <span style="color: #666666">${</span><span style="color: #19177C">CMAKE_SOURCE_DIR</span><span style="color: #666666">}</span><span style="color: #BA2121">/include</span>)
+
+<span style="color: #008000">include</span>(<span style="color: #BA2121">FetchContent</span>)
+<span style="color: #008000">FetchContent_Declare</span>(
+  <span style="color: #BA2121">googletest</span>
+  <span style="color: #BA2121">GIT_REPOSITORY</span> <span style="color: #BA2121">https://github.com/google/googletest.git</span>
+  <span style="color: #BA2121">GIT_TAG</span>        <span style="color: #BA2121">release-1.10.0</span>
+)
+<span style="color: #008000">FetchContent_MakeAvailable</span>(<span style="color: #BA2121">googletest</span>)  <span style="color: #408080; font-style: italic"># </span><i class="conum" data-value="3"></i><b>(3)</b>
+
+<span style="color: #008000">add_executable</span>(<span style="color: #666666">${</span><span style="color: #19177C">TEST_EXECUTABLE</span><span style="color: #666666">}</span> <span style="color: #BA2121">Foo.cpp</span>)  <span style="color: #408080; font-style: italic"># </span><i class="conum" data-value="4"></i><b>(4)</b>
+<span style="color: #008000">target_link_libraries</span>(<span style="color: #666666">${</span><span style="color: #19177C">TEST_EXECUTABLE</span><span style="color: #666666">}</span>
+  <span style="color: #BA2121">gmock</span>  <span style="color: #408080; font-style: italic"># </span><i class="conum" data-value="5"></i><b>(5)</b>
+  <span style="color: #BA2121">gmock_main</span>
+)
+<span style="color: #008000">target_include_directories</span>(<span style="color: #666666">${</span><span style="color: #19177C">TEST_EXECUTABLE</span><span style="color: #666666">}</span> <span style="color: #BA2121">PUBLIC</span>
+  <span style="color: #666666">${</span><span style="color: #19177C">UNIT_UNDER_TEST_INCLUDE_DIR</span><span style="color: #666666">}</span>  <span style="color: #408080; font-style: italic"># </span><i class="conum" data-value="6"></i><b>(6)</b>
+)
+
+<span style="color: #008000">add_test</span>(<span style="color: #666666">${</span><span style="color: #19177C">TEST_NAME</span><span style="color: #666666">}</span> <span style="color: #666666">${</span><span style="color: #19177C">TEST_EXECUTABLE</span><span style="color: #666666">}</span>)
+</pre></td></tr></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Ensure minimum version supporting this approach.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Variables to centralize all customization points and simplify this article.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Add GoogleTest to the main build, so that the main build can use GoogleTest targets. GoogleTest sources are fetched to your main build directory, keeping your main source directory clean.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Either add the required sources of the unit-under-test or provide the <a href="https://stackoverflow.com/questions/41883841/confusion-about-unit-tests-googletest-and-projects-folder-files/41939662#41939662">production code as library</a> and add the production library to line 16.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><a href="https://github.com/google/googlemock">GoogleMock was absorbed into GoogleTest</a> but confusingly contains GoogleTest.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Allow includes of the unit-under-test.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Then create a file <code>test/Foo.cpp</code> with a minimal, failing test to demonstrate that the testing infrastructure works:</p>
+</div>
+<div class="listingblock">
+<div class="title">test/Foo.cpp</div>
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="cpp"><span></span><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;gmock/gmock.h&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;gtest/gtest.h&gt;</span><span style="color: #BC7A00"></span>
+
+TEST(Foo, Bar) {
+  ASSERT_THAT(<span style="color: #666666">0</span>, <span style="color: #666666">::</span>testing<span style="color: #666666">::</span>Eq(<span style="color: #666666">1</span>));
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally you are ready to <code>mkdir build &amp;&amp; cd build &amp;&amp; cmake -G Ninja ..</code> and to call <code>ninja &amp;&amp; ctest</code> whenever you fancy.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. see <a href="https://cmake.org/cmake/help/v3.14/module/FetchContent.html">CMake&#8217;s documentation</a> how to support version 3.11
+</div>
+</div>
+</div>
+			
+			</div><!-- /.container -->
+			<footer>
+				<p>Feedback is much appreciated by <a href="mailto:rknuus@gmail.com">email</a>. Thanks.</p>
+			</footer>
+		</body>
+	</html>
