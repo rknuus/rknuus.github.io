@@ -1,128 +1,21 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<meta charset="UTF-8" />
-			<title>Searching a needle in a log file</title>
-            <link rel="stylesheet" type="text/css" href="/css/boot-journal.css">
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.css">
-			<link rel="alternate" type="application/rss+xml" title="AQ - Agility & Quality"
-href="/feed.xml">
-
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071141-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-
-			  gtag('config', 'UA-159071141-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/tags">Tags</a></li>
-		        	<li><a href="/about">About</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<h1>Searching a needle in a log file</h1>
-<div class="post-metadata">
-  <div class="post-date">
-    <i class="far fa-calendar"></i> 01 May 2020
-  </div>
-  <div class="post-tags">
-    
-    <i class="fas fa-tags"></i> 
-      <a href="/tags/#debugging">debugging</a>, 
-    
-      <a href="/tags/#howto">howto</a>, 
-    
-      <a href="/tags/#python">python</a>, 
-    
-      <a href="/tags/#quality">quality</a>
-    
-  </div>
-  <div class="post-read-time">
-    
-    <i class="far fa-clock"></i> 3 mins
-  </div>
-</div>
-
-<div class="post">
-  <div class="paragraph">
-<p>If you receive a defect report with a log file and instructions how to reproduce the issue on a customer system, you take a look at the log file first. If the log file is big searching manually doesn&#8217;t cut the mustard. For large enough log files even a decent log file viewer might not be good enough, e.g. if you need to identify lines with identical message IDs. So what to do about it?</p>
-</div>
-<div class="paragraph">
-<p>Python&#8217;s <a href="https://www.python.org/dev/peps/pep-0289/">generator expressions</a> could be a tool worth adding to your belt. In a nutshell a generator expression is a way to iterate over lazily-evaluated data and to apply map-reduce operations. Let&#8217;s just have a look at an example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="python"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(line):
-  <span style="color: #008000; font-weight: bold">return</span> line<span style="color: #666666">.</span>replace(<span style="color: #BA2121">&#39;foo&#39;</span>, <span style="color: #BA2121">&#39;bar&#39;</span>)
-
-<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">g</span>(line):
-  <span style="color: #008000; font-weight: bold">return</span> line[::<span style="color: #666666">-1</span>]  <span style="color: #408080; font-style: italic"># reverses the line</span>
-
-<span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(<span style="color: #BA2121">&#39;some logfile&#39;</span>) <span style="color: #008000; font-weight: bold">as</span> logfile:
-  lines <span style="color: #666666">=</span> (line <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> logfile)  <span style="color: #408080; font-style: italic">#</span><i class="conum" data-value="1"></i><b>(1)</b>
-  reduced_lines <span style="color: #666666">=</span> (line <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> lines <span style="color: #008000; font-weight: bold">if</span> <span style="color: #BA2121">&#39;foo&#39;</span> <span style="color: #AA22FF; font-weight: bold">in</span> line)  <span style="color: #408080; font-style: italic">#</span><i class="conum" data-value="2"></i><b>(2)</b>
-  mapped_lines <span style="color: #666666">=</span> (f(line) <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> reduced_lines)  <span style="color: #408080; font-style: italic">#</span><i class="conum" data-value="3"></i><b>(3)</b>
-  lines <span style="color: #666666">=</span> (g(line) <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> mapped_lines <span style="color: #008000; font-weight: bold">if</span> <span style="color: #BA2121">&#39;non&#39;</span> <span style="color: #AA22FF; font-weight: bold">in</span> line)  <span style="color: #408080; font-style: italic">#</span><i class="conum" data-value="4"></i><b>(4)</b>
-  <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> lines:  <span style="color: #408080; font-style: italic">#</span><i class="conum" data-value="5"></i><b>(5)</b>
-    <span style="color: #008000">print</span>(line)</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The basic structure is like a slightly rearranged and compacted for-loop:<br>
-<code>(&lt;iterator-based return value&gt; for &lt;iterator&gt; in &lt;range&gt;)</code></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>To reduce simply add <code>if &lt;condition&gt;</code> after the for-loop</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Mapping is done by modifying the <code>&lt;iterator-based return value&gt;</code>, e.g. by calling a function on it</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Map and reduce combined</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>You can iterate once over a generator expression</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><a href="https://www.python.org/dev/peps/pep-0289/">Generator expressions</a> can be chained, i.e. a <a href="https://www.python.org/dev/peps/pep-0289/">generator expression</a> can be fed with elements of another <a href="https://www.python.org/dev/peps/pep-0289/">generator expression</a>. Thanks to lazy evaluation only the currently used elements must be loaded to memory. That&#8217;s why this approach works reasonably fast for large files.</p>
-</div>
-<div class="paragraph">
-<p>When applying <a href="https://www.python.org/dev/peps/pep-0289/">generator expressions</a> on log files you can extract specific information and&#8201;&#8212;&#8201;for instance&#8201;&#8212;&#8201;generate a <a href="https://plantuml.com">diagram</a> to visualize matching lines with identical message IDs. Two caveats I&#8217;d like to point out: You can consume a generator expression once and only once. And you need to pick up <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a>.</p>
-</div>
-<div class="paragraph">
-<p>To learn more about generator expressions check out David Beazley&#8217;s excellent <a href="http://www.dabeaz.com/generators/">Generator Tricks</a>. And instead of reinventing the functional wheel check out the <a href="https://docs.python.org/3/library/itertools.html">documentation</a>.</p>
-</div>
-<div class="sidebarblock changehistory">
-<div class="content">
-<div class="title">change history:</div>
-<div class="paragraph">
-<p>improve case for generator expressions, 04-May-2020<br>
-initial version, 01-May-2020</p>
-</div>
-</div>
-</div>
-</div>
-			
-			</div><!-- /.container -->
-			<footer>
-				<p>Feedback is much appreciated by <a href="mailto:rknuus@gmail.com">email</a>. Thanks.</p>
-			</footer>
-		</body>
-	</html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- The user- and SEO-friendliest way would be HTTP permanent redirects (status code 301).
+         This would require server-side configuration, which Github Pages do not support. So
+         the next best thing is to redirect by HTML meta tags. According to
+         https://css-tricks.com/redirect-web-page/ this trips certain browsers. That's why the page
+         contains a link for manual redirection.
+         Borrowed from https://gist.github.com/domenic/1f286d415559b56d725bee51a62c24a7 and
+         https://opensource.com/article/19/7/permanently-redirect-github-pages. -->
+    <title>Redirecting to https://rknuus.github.io/agility-and-quality/blog/2020/05/01/searching-a-needle-in-a-log-file</title>
+    <meta http-equiv="refresh" content="0; URL=https://rknuus.github.io/agility-and-quality/blog/2020/05/01/searching-a-needle-in-a-log-file">
+    <link rel="canonical" href="https://rknuus.github.io/agility-and-quality/blog/2020/05/01/searching-a-needle-in-a-log-file">
+  </head>
+  <body>
+    <h1>
+      The page been moved to <a href="https://rknuus.github.io/agility-and-quality/blog/2020/05/01/searching-a-needle-in-a-log-file">https://rknuus.github.io/agility-and-quality/blog/2020/05/01/searching-a-needle-in-a-log-file</a>
+    </h1>
+  </body>
+</html>

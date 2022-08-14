@@ -1,120 +1,21 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<meta charset="UTF-8" />
-			<title>A Software Quality Model</title>
-            <link rel="stylesheet" type="text/css" href="/css/boot-journal.css">
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.css">
-			<link rel="alternate" type="application/rss+xml" title="AQ - Agility & Quality"
-href="/feed.xml">
-
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071141-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-
-			  gtag('config', 'UA-159071141-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/tags">Tags</a></li>
-		        	<li><a href="/about">About</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<h1>A Software Quality Model</h1>
-<div class="post-metadata">
-  <div class="post-date">
-    <i class="far fa-calendar"></i> 01 Mar 2020
-  </div>
-  <div class="post-tags">
-    
-    <i class="fas fa-tags"></i> 
-      <a href="/tags/#quality">quality</a>
-    
-  </div>
-  <div class="post-read-time">
-    
-    <i class="far fa-clock"></i> 2 mins
-  </div>
-</div>
-
-<div class="post">
-  <div class="paragraph">
-<p>As explained <a href="../../../2020/02/09/the-problem-with-software-quality.html">before</a> quality is subjective. That&#8217;s why a definition of Software Quality must be quite abstract to be widely acceptable. My favorite definition is an extension of <a href="#DeJ2016">Juran&#8217;s</a> "fitness for use" (<a href="#DeJ2016">[DeJ2016]</a>) and maps to the one in the book <a href="https://pragprog.com/book/rjnsd/the-nature-of-software-development">The Nature of Software Development</a> (<a href="#Jef2015">[Jef2015]</a>):</p>
-</div>
-<div class="paragraph">
-<p>Software Quality is the combination of:</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="/images/post-images/software-quality-definition.svg" alt="software quality definition">
-</div>
-</div>
-<div class="paragraph">
-<p>Fitness for use is relevant for the end-user and fitness for operation for the operations teams. They are external views and match the <a href="#Jef2015">Jeffries&#8217;s</a> term well-tested. Fitness for change is the internal view of the organization maintaining the system and corresponds to the <a href="#Jef2015">Jeffries&#8217;s</a> term well-designed.</p>
-</div>
-<div class="paragraph">
-<p>Those three fitnesses need to be balanced, but the definition is too high-level to be useful. To make it more tangible I suggest to link the relevant <a href="https://iso25000.com/index.php/en/iso-25000-standards/iso-25010">quality attributes</a> of the system [to be] defined by the software architect to the three fitnesses.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="/images/post-images/software-quality-model.svg" alt="software quality model">
-</div>
-</div>
-<div class="paragraph">
-<p>While the <a href="https://iso25000.com/index.php/en/iso-25000-standards/iso-25010">quality attributes</a> might still be too abstract, they are linked to concrete quality attribute scenarios.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="/images/post-images/software-quality-model-with-scenarios.svg" alt="software quality model with scenarios">
-</div>
-</div>
-<div class="paragraph">
-<p>When planning changes of the system the model helps to keep the quality of the system in balance and even allows to adjust the balance when circumstances change.</p>
-</div>
-<div class="paragraph">
-<p>Revisiting my <a href="../../../2020/02/09/the-problem-with-software-quality.html">Software Quality definition criteria</a> the suggested definition &amp; model:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>are <em>simple</em>: because the number of elements to consider is managable</p>
-</li>
-<li>
-<p>work <em>intuitively</em>: stakeholders (e.g. developers) can represent their interests (e.g. fitness for change) while everybody keeps the overview to make conscious decisions</p>
-</li>
-<li>
-<p>and are <em>flexible</em>: linking the system specific <a href="https://iso25000.com/index.php/en/iso-25000-standards/iso-25010">quality attributes</a> tailors the model to the system context</p>
-</li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="references">References</h2>
-<div class="sectionbody">
-<div class="ulist bibliography">
-<ul class="bibliography">
-<li>
-<p><a id="DeJ2016"></a>[DeJ2016]: <a href="https://www.amazon.com/Jurans-Quality-Handbook-Performance-Excellence-ebook-dp-B01MEC22PW/dp/B01MEC22PW">Juran&#8217;s Quality Control Handbook</a> by Joseph A. DeFeo &amp; Joseph M. Juran</p>
-</li>
-<li>
-<p><a id="Jef2015"></a>[Jef2015]: <a href="https://pragprog.com/book/rjnsd/the-nature-of-software-development">The Nature of Software Development</a> by Ron Jeffries</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-			
-			</div><!-- /.container -->
-			<footer>
-				<p>Feedback is much appreciated by <a href="mailto:rknuus@gmail.com">email</a>. Thanks.</p>
-			</footer>
-		</body>
-	</html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- The user- and SEO-friendliest way would be HTTP permanent redirects (status code 301).
+         This would require server-side configuration, which Github Pages do not support. So
+         the next best thing is to redirect by HTML meta tags. According to
+         https://css-tricks.com/redirect-web-page/ this trips certain browsers. That's why the page
+         contains a link for manual redirection.
+         Borrowed from https://gist.github.com/domenic/1f286d415559b56d725bee51a62c24a7 and
+         https://opensource.com/article/19/7/permanently-redirect-github-pages. -->
+    <title>Redirecting to https://rknuus.github.io/agility-and-quality/blog/2020/03/01/a-software-quality-model</title>
+    <meta http-equiv="refresh" content="0; URL=https://rknuus.github.io/agility-and-quality/blog/2020/03/01/a-software-quality-model">
+    <link rel="canonical" href="https://rknuus.github.io/agility-and-quality/blog/2020/03/01/a-software-quality-model">
+  </head>
+  <body>
+    <h1>
+      The page been moved to <a href="https://rknuus.github.io/agility-and-quality/blog/2020/03/01/a-software-quality-model">https://rknuus.github.io/agility-and-quality/blog/2020/03/01/a-software-quality-model</a>
+    </h1>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8" />
+			<title>Functional decomposition is the root of all evil</title>
+            <link rel="stylesheet" type="text/css" href="/css/boot-journal.css">
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.css">
+			<link rel="alternate" type="application/rss+xml" title="AQ - Agility & Quality"
+href="/feed.xml">
+
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071141-1"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'UA-159071141-1');
+			</script>
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	        		<li><a href="/">Home</a></li>
+	        		<li><a href="/agility-and-quality/">AQ - Agility & Quality blog home</a></li>
+		        	<li><a href="/agility-and-quality/tags">Tags</a></li>
+		        	<li><a href="/agility-and-quality/about">About</a></li>
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			<h1>Functional decomposition is the root of all evil</h1>
+<div class="post-metadata">
+  <div class="post-date">
+    <i class="far fa-calendar"></i> 05 Jul 2020
+  </div>
+  <div class="post-tags">
+    
+    <i class="fas fa-tags"></i> 
+      <a href="/agility-and-quality/tags/#agility">agility</a>, 
+    
+      <a href="/agility-and-quality/tags/#architecture">architecture</a>, 
+    
+      <a href="/agility-and-quality/tags/#book-review">book-review</a>
+    
+  </div>
+  <div class="post-read-time">
+    
+    <i class="far fa-clock"></i> 2 mins
+  </div>
+</div>
+
+<div class="post">
+  <div class="paragraph">
+<p>In <a href="#SER407">SE Radio Episode 407</a> Juval Löwy made some bold statements. So I got curious, read the first part of his book <a href="#Loe2020">Righting Software</a>, and will publish the aspects I found most interesting. This is the first of a series of articles about his ideas and some reflections of mine.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_Reading_38463.svg" alt="noun Reading 38463">
+</div>
+</div>
+<div class="paragraph">
+<p>His first major thesis is that functional decomposition is the mother of all software maintainability issues. A position backed by the <a href="#SEI">Software Engineering Institute</a>. The reasoning is that - by tightly coupling the structure to requirements - future requirement changes inevitably require structural changes.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_tired_1749591.svg" alt="noun tired 1749591">
+</div>
+</div>
+<div class="paragraph">
+<p>Indeed in classical project management the goal is to finish the development project. But even if the project completes in time, in budget, and with the expected functional scope, maintainability tends to be an afterthought. Which, according to <a href="#WMW2020">Software Engineering at Google</a> would be mere software development, but not software engineering. Because "software engineering is software development integrated over time." (<a href="#WMW2020">[WMW2020]</a>)</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_engineer_1706578.svg" alt="noun engineer 1706578">
+</div>
+</div>
+<div class="paragraph">
+<p>Agile approaches focus on delivering value early and often. Still, maintainability is not guaranteed to be a concern. <a href="#Jef2015">The Nature of Software Development</a> suggests that for each increment the software should be well-designed (see <a href="../../../2019/11/26/quintessence-of-software-development.html">Quintessence of (agile) software development</a>), but that&#8217;s quite hand-wavy.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/agility-and-quality/images/post-images/noun_modern%20art_875730.svg" alt="noun modern art 875730">
+</div>
+</div>
+<div class="paragraph">
+<p>In <a href="../../../2020/03/01/a-software-quality-model.html">A Software Quality Model</a> I suggested to link concrete quality attributes of the software system to "fitness for change". But this still doesn&#8217;t answer how to decompose your software. Curious about the solution suggested by Juwal Löwy? <a href="../../../2020/08/30/isolate-volatility-and-stability.html">Read on</a>.</p>
+</div>
+<div class="sect1">
+<h2 id="references">References</h2>
+<div class="sectionbody">
+<div class="ulist bibliography">
+<ul class="bibliography">
+<li>
+<p><a id="Loe2020"></a>[Loe2020]: <a href="https://rightingsoftware.org/">Righting Software</a> by Juval Löwy</p>
+</li>
+<li>
+<p><a id="WMW2020"></a>[WMW2020]: <a href="https://www.amazon.com/Software-Engineering-Google-Lessons-Programming/dp/1492082791">Software Engineering at Google: Lessons Learned from Programming Over Time</a> by Titus Winters, Tom Manshreck, and Hyrum Wright</p>
+</li>
+<li>
+<p><a id="Jef2015"></a>[Jef2015]: <a href="https://pragprog.com/book/rjnsd/the-nature-of-software-development">The Nature of Software Development</a> by Ron Jeffries</p>
+</li>
+<li>
+<p><a id="SER407"></a>[SER407]: Software Engineering Radio <a href="https://www.se-radio.net/2020/04/episode-407-juval-lowy-on-righting-software/">Episode 407: Juval Löwy on Righting Software</a></p>
+</li>
+<li>
+<p><a id="SER396"></a>[SER396]: Software Engineering Radio <a href="https://www.se-radio.net/2020/01/episode-396-barry-oreilly-on-antifragile-architecture/r">Episode 396: Barry O’Reilly on Antifragile Architecture</a></p>
+</li>
+<li>
+<p><a id="SEI"></a>[SEI]: <a href="https://www.sei.cmu.edu/">Software Engineering Institute</a> of the Carnegie Mellon University</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock changehistory">
+<div class="content">
+<div class="title">change history:</div>
+<div class="paragraph">
+<p>improve wording and add link to next article of the series, 29-Jul-2020<br>
+initial version, 05-Jul-2020</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+			
+			</div><!-- /.container -->
+			<footer>
+				<p>Feedback is much appreciated by <a href="mailto:rknuus@gmail.com">email</a>. Thanks.</p>
+			</footer>
+		</body>
+	</html>

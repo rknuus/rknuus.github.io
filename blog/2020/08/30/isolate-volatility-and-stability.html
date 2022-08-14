@@ -1,90 +1,21 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<meta charset="UTF-8" />
-			<title>Isolate volatility and stability</title>
-            <link rel="stylesheet" type="text/css" href="/css/boot-journal.css">
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.css">
-			<link rel="alternate" type="application/rss+xml" title="AQ - Agility & Quality"
-href="/feed.xml">
-
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159071141-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-
-			  gtag('config', 'UA-159071141-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/tags">Tags</a></li>
-		        	<li><a href="/about">About</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<h1>Isolate volatility and stability</h1>
-<div class="post-metadata">
-  <div class="post-date">
-    <i class="far fa-calendar"></i> 30 Aug 2020
-  </div>
-  <div class="post-tags">
-    
-    <i class="fas fa-tags"></i> 
-      <a href="/tags/#agility">agility</a>, 
-    
-      <a href="/tags/#architecture">architecture</a>, 
-    
-      <a href="/tags/#book-review">book-review</a>
-    
-  </div>
-  <div class="post-read-time">
-    
-    <i class="far fa-clock"></i> 1 mins
-  </div>
-</div>
-
-<div class="post">
-  <div class="paragraph">
-<p>As quoted <a href="../../../2020/07/05/functional-decomposition-is-the-root-of-all-evil.html">before</a> functional decomposition usually leads to maintenance issues (<a href="#Loe2020">[Loe2020]</a>). So what&#8217;s Juval Löwy&#8217;s suggestion how to decompose an application, then? He argues that decomposition should encapsulate "areas of potential change" (volatility) to reduce ripple effects of volatility-driven changes on other components. An idea already published in 1972 by David Parnas (<a href="#Parn1972">[Parn1972]</a>).</p>
-</div>
-<div class="paragraph">
-<p>An example: If you would decompose the human body in functional manner you might well end up with components for running, blogging, sleeping etc. In reality body functions can be seen as services which are consumed in various conditions. E.g. your heart pumps blood. It takes care of related volatilities like your activity level, your health condition etc. So the human body hides complexity behind reasonable abstractions (<a href="#LeM2012">[LeM2012]</a>).</p>
-</div>
-<div class="paragraph">
-<p>Löwy observes that changing requirements generate huge costs in case of functional decomposition because multiple components tend to be affected. Volatility-based decomposition doesn&#8217;t promise to constrain <em>all</em> requirement changes to a single component, but it increases your chances. That&#8217;s why the author believes it&#8217;s your best shot. This sounds plausible for business applications, but might not apply equally well to other domains (e.g. typically affects multiple components unless you bundle logic into the UI component).</p>
-</div>
-<div class="paragraph">
-<p>Interestingly the authors of <a href="#LeM2012">Managing Complexity of Information Systems</a> tackle the problem from the other end and argue that the best approach to cope with changing requirements is to "identify things that do <em>not</em> change" (<a href="#LeM2012">[LeM2012]</a>). This leads me to the conclusion that it probably doesn&#8217;t matter which approach you take, as long as you focus on separating volatile from stable concerns.</p>
-</div>
-<div class="sect1">
-<h2 id="references">References</h2>
-<div class="sectionbody">
-<div class="ulist bibliography">
-<ul class="bibliography">
-<li>
-<p><a id="Loe2020"></a>[Loe2020]: <a href="https://rightingsoftware.org/">Righting Software</a> by Juval Löwy</p>
-</li>
-<li>
-<p><a id="Parn1972"></a>[Parn1972]: On the Criteria to Be Used in Decomposing Systems into Modules by David Parnas, Communications of the ACM 15, no. 12 (1972)</p>
-</li>
-<li>
-<p><a id="LeM2012"></a>[LeM2012]: Managing Complexity of Information Systems by Pirmin Lemberger and Médéric Morel</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-			
-			</div><!-- /.container -->
-			<footer>
-				<p>Feedback is much appreciated by <a href="mailto:rknuus@gmail.com">email</a>. Thanks.</p>
-			</footer>
-		</body>
-	</html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- The user- and SEO-friendliest way would be HTTP permanent redirects (status code 301).
+         This would require server-side configuration, which Github Pages do not support. So
+         the next best thing is to redirect by HTML meta tags. According to
+         https://css-tricks.com/redirect-web-page/ this trips certain browsers. That's why the page
+         contains a link for manual redirection.
+         Borrowed from https://gist.github.com/domenic/1f286d415559b56d725bee51a62c24a7 and
+         https://opensource.com/article/19/7/permanently-redirect-github-pages. -->
+    <title>Redirecting to https://rknuus.github.io/agility-and-quality/blog/2020/08/30/isolate-volatility-and-stability</title>
+    <meta http-equiv="refresh" content="0; URL=https://rknuus.github.io/agility-and-quality/blog/2020/08/30/isolate-volatility-and-stability">
+    <link rel="canonical" href="https://rknuus.github.io/agility-and-quality/blog/2020/08/30/isolate-volatility-and-stability">
+  </head>
+  <body>
+    <h1>
+      The page been moved to <a href="https://rknuus.github.io/agility-and-quality/blog/2020/08/30/isolate-volatility-and-stability">https://rknuus.github.io/agility-and-quality/blog/2020/08/30/isolate-volatility-and-stability</a>
+    </h1>
+  </body>
+</html>
