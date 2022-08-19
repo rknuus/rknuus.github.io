@@ -16,7 +16,7 @@ group :jekyll_plugins do
 end
 
 # Theme configured in _config.yml
-gem "jekyll-theme-hacker", "~> 0.2.0"
+gem "minimal-mistakes-jekyll"
 
 # Web server for local test runs
 gem "webrick"

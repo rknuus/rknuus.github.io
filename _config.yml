@@ -30,10 +30,23 @@ permalink: /:collection/:year-:month-:day-:title:output_ext
 show_excerpts: true
 
 # Build settings
-remote_theme: pages-themes/hacker@v0.2.0
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
-  - jekyll-remote-theme
+  # - jekyll-remote-theme
+
+# Recommended defaults for front-matters, see https://mmistakes.github.io/minimal-mistakes/docs/posts/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      # share: true
+      related: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
