@@ -43,11 +43,10 @@ and of vinyl record:
 /* borrowed from https://codepen.io/chrissp26/pen/OPNKXm */
 .filmframe {
   position: relative;
-  top: 0;
+  top: calc(320px - 245px + 8px);
   margin-left: 8px;
   width: 320px;
   aspect-ratio: 16/9;
-  margin-bottom: -8px;  /* yuck */
   background: #000;
   background-image: linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff);
   background-repeat: no-repeat;
@@ -62,6 +61,33 @@ and of vinyl record:
 .talk-thumbnail img {
   max-width: 100%;
   border-radius: 2px;
+}
+
+/* inspired by https://codepen.io/tzzo/pen/QpoBNy and https://codepen.io/hetfy/pen/YzWpKEx */
+.vinyl {
+  position: relative;
+  top: 8px;
+  margin-left: 8px;
+  width: 320px;
+  aspect-ratio: 1;
+  background-color: #ff7f50;
+}
+
+.podcast-thumbnail {
+  position: absolute;
+  padding: 25% 5%;
+}
+
+.podcast-thumbnail img {
+  max-width: 100%;
+  border-radius: 2px;
+}
+
+.podcast-background {
+  position: absolute;
+  padding: 2.5%;
+  width: 95%;
+  transform: rotate(90deg); /* just to show more of the reflection */
 }
 
 /* inspired by https://codepen.io/ekfuhrmann/pen/OJmRVPj */
@@ -98,6 +124,12 @@ and of vinyl record:
     <div class="col-1">
       <div class="filmframe">
         <div class="talk-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="vinyl">
+        <img class="podcast-background" src="https://res.cloudinary.com/hetfy/image/upload/v1603289694/picture_qn3k6k.png" alt="Disk">
+        <div class="podcast-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
       </div>
     </div>
   </div>
