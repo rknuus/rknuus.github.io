@@ -23,10 +23,6 @@ and of vinyl record:
 (instead of casette tape:)
 - https://codepen.io/tomhazledine/pen/RwxeVw
 - https://github.com/mrtoxas/cassette-tape-css
-
-and of film strips:
-- https://codepen.io/chrissp26/full/OPNKXm
-https://codepen.io/alok/pen/ErYZrd
 */
 
 /* To visualize the outline of all elements uncomment the following code: */
@@ -34,21 +30,52 @@ https://codepen.io/alok/pen/ErYZrd
     outline: 1px solid red;
 } */
 
-.shelfboard {
+.row {
   width: 80%;
+  height: 300px;
+}
+
+/* borrowed from https://codepen.io/chrissp26/pen/OPNKXm */
+.filmframe {
+  position: relative;
+  top: 0;
+  margin-left: 8px;
+  width: 320px;
+  aspect-ratio: 16/9;
+  margin-bottom: -8px;  /* yuck */
+  background: #000;
+  background-image: linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff);
+  background-repeat: no-repeat;
+  background-position: 5% 5%, 15% 5%, 25% 5%, 35% 5%, 45% 5%, 55% 5%, 65% 5%, 75% 5%, 85% 5%, 95% 5%, 5% 95%, 15% 95%, 25% 95%, 35% 95%, 45% 95%, 55% 95%, 65% 95%, 75% 95%, 85% 95%, 95% 95%;
+  background-size: 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%;
+}
+
+.talk-thumbnail {
+  padding: 13% 5%;
+}
+
+.talk-thumbnail img {
+  max-width: 100%;
+  border-radius: 2px;
+}
+
+/* inspired by https://codepen.io/ekfuhrmann/pen/OJmRVPj */
+.shelfboard {
+  position: relative;
+  top: calc(320px * 16 / 9 - 16 / 2);
+  width: 100%;
+  z-index: -1;
 }
 
 .shelfboard-top {
-  position: relative;
   border-bottom: 16px solid #f3f3f3;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
 
 .shelfboard-front {
-  position: relative;
   width: 100%;
-  height: 26px; /* TODO(KNR): how to make all dimensions relative for all screen sizes? */
+  height: 26px; /* TODO(KNR): how to make all dimensions relative, but OK for all screen sizes? */
   box-shadow: 0px -1px 6px rgb(0 0 0 / 5%), 0px 4px 16px rgb(0 0 0 / 25%);
 }
 
@@ -56,10 +83,15 @@ https://codepen.io/alok/pen/ErYZrd
 </head>
 
 <body>
-<div class="shelfboard">
-  <div class="shelfboard-top">
+<div class="row">
+  <div class="filmframe">
+    <div class="talk-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
   </div>
-  <div class="shelfboard-front">
+  <div class="shelfboard">
+    <div class="shelfboard-top">
+    </div>
+    <div class="shelfboard-front">
+    </div>
   </div>
 </div>
 </body>
