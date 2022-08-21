@@ -45,7 +45,6 @@
   background-repeat: no-repeat;
   background-position: 5% 5%, 15% 5%, 25% 5%, 35% 5%, 45% 5%, 55% 5%, 65% 5%, 75% 5%, 85% 5%, 95% 5%, 5% 95%, 15% 95%, 25% 95%, 35% 95%, 45% 95%, 55% 95%, 65% 95%, 75% 95%, 85% 95%, 95% 95%;
   background-size: 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%;
-  cursor: pointer;
 }
 
 .talk-thumbnail {
@@ -65,7 +64,6 @@
   width: 320px;
   aspect-ratio: 1;
   background-color: #ff7f50;
-  cursor: pointer;
 }
 
 .podcast-thumbnail {
@@ -93,7 +91,6 @@
   margin-left: 8px;
   height: 320px;
   aspect-ratio: 3/4;
-  cursor: pointer;
 }
 
 /* borrowed from https://codepen.io/rikanutyy/pen/PEJBxX */
@@ -137,32 +134,6 @@
   border-radius: 2px;
 }
 
-.infobox {
-  position: relative;
-  top: 12px;
-  width: 300px;
-  height: 320px;
-  margin-left: 16px;
-  transform: skew(1deg, -1deg);
-  background: white;
-  border: 2px groove;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.infobox:before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -7px;
-  width: 300px;
-  height: 101%;
-  background: white;
-  transform: skew(-2deg, 0deg);
-  border: 2px groove;
-  z-index: -1;
-}
-
 /* inspired by https://codepen.io/ekfuhrmann/pen/OJmRVPj */
 .shelfboard {
   position: relative;
@@ -183,6 +154,169 @@
   box-shadow: 0px -1px 6px rgb(0 0 0 / 5%), 0px 4px 16px rgb(0 0 0 / 25%);
 }
 
+.col-1-post {
+  position: relative;
+  top: 8px;
+  font-family: 'Heebo';
+  --bg-filter-opacity: 0.5;
+  /*background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);*/
+  background: #252830;
+  height: 640px;
+  width: 360px;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 24px;
+  padding: 24px;
+  /*margin: 2em;*/
+  margin-left: 30px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 60px -24px black;
+  overflow: hidden;
+  border: 10px solid #ccc;
+  text-decoration: none;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  /*align-items: flex-begin;*/
+  cursor: pointer;
+}
+
+/* borrowed from https://codepen.io/chrissp26/pen/OPNKXm */
+.talk-reference {
+  position: relative;
+  width: 320px;
+  /*margin-top: 70px;*/
+  aspect-ratio: 16/9;
+  background: #000;
+  background-image: linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff), linear-gradient(to right, #fff, #fff);
+  background-repeat: no-repeat;
+  background-position: 5% 5%, 15% 5%, 25% 5%, 35% 5%, 45% 5%, 55% 5%, 65% 5%, 75% 5%, 85% 5%, 95% 5%, 5% 95%, 15% 95%, 25% 95%, 35% 95%, 45% 95%, 55% 95%, 65% 95%, 75% 95%, 85% 95%, 95% 95%;
+  background-size: 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%, 5% 8%;
+}
+
+.talk-thumbnail {
+  padding: 13% 5%;
+}
+
+.talk-thumbnail img {
+  max-width: 100%;
+  border-radius: 2px;
+}
+
+.blog-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.blog-teaser {
+  margin-top: 10px;
+}
+
+.col-1-post .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 1em;
+  line-height: 1em;
+  opacity: .8;
+}
+
+.col-1-post .tags {
+  position: absolute;
+  top: 640px;
+  left: 20px;
+  display: flex;
+}
+
+.col-1-post .tags .tag {
+  font-size: 0.75em;
+  background: rgba(255,255,255,0.5);
+  border-radius: 0.3rem;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  line-height: 1.5em;
+}
+
+/* inspired by https://codepen.io/tzzo/pen/QpoBNy and https://codepen.io/hetfy/pen/YzWpKEx */
+.podcast-reference {
+  position: relative;
+  top: 8px;
+  margin-left: 8px;
+  width: 320px;
+  aspect-ratio: 1;
+  background-color: #ff7f50;
+}
+
+.podcast-thumbnail {
+  position: absolute;
+  padding: 25% 5%;
+}
+
+.podcast-thumbnail img {
+  max-width: 100%;
+  border-radius: 2px;
+}
+
+.podcast-background {
+  position: absolute;
+  padding: 2.5%;
+  width: 95%;
+  transform: rotate(90deg); /* just to show more of the reflection */
+}
+
+/* inspired by https://codepen.io/siiron/pen/nBYGoB */
+.book-reference {
+  position: relative;
+  left: -4px;
+  height: 320px;
+  aspect-ratio: 3/4;
+}
+
+/* borrowed from https://codepen.io/rikanutyy/pen/PEJBxX */
+/* upper pages */
+.book-reference:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: repeating-linear-gradient(
+    #BAC1BA,
+    #BAC1BA 1px,
+    #92A29C 1px,
+    #92A29C 2px);
+  transform-origin: bottom;
+  transform: skewX(-45deg);
+}
+
+/* right-hand-side pages */
+.book-reference:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 10px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #eee,
+    #eee 1px,
+    #92A29C 1px,
+    #92A29C 2px);
+  transform-origin: left;
+  transform: skewY(-45deg);
+}
+
+.book-reference img {
+  max-width: 100%;
+  border-radius: 2px;
+}
   </style>
 </head>
 
@@ -221,14 +355,41 @@
 
 <div class="row">
   <div class="items">
-    <div class="col-1">
-      <div class="filmframe">
+    <div class="col-1-post">
+      <div class="date">01-Apr-2022</div>
+      <div class="talk-reference">
         <div class="talk-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
       </div>
+      <h1 class="blog-title">A wonderful talk about books</h1>
+      <p class="blog-teaser">"Lorem ipsum", sagte der Chaschperli und tr&auml;llerte: "Lalalalah".</p>
+      <div class="tags">
+        <div class="tag">books</div>
+        <div class="tag">talk</div>
+      </div>
     </div>
-    <div class="col-1">
-      <div class="infobox">
-        <h3>Alle hunderttausend heulende H&ouml;llenhunde</h3>
+    <div class="col-1-post">
+      <div class="date">01-Apr-2022</div>
+      <div class="podcast-reference">
+        <img class="podcast-background" src="https://res.cloudinary.com/hetfy/image/upload/v1603289694/picture_qn3k6k.png">
+        <div class="podcast-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
+      </div>
+      <h1 class="blog-title">A wonderful podcast about books</h1>
+      <p class="blog-teaser">Und wenn sie nicht gestorben sind...</p>
+      <div class="tags">
+        <div class="tag">books</div>
+        <div class="tag">podcast</div>
+      </div>
+    </div>
+    <div class="col-1-post">
+      <div class="date">01-Apr-2022</div>
+      <div class="book-reference">
+        <img class="book-front" src="https://via.placeholder.com/1080x1440">
+      </div>
+      <h1 class="blog-title">A wonderful book about books</h1>
+      <p class="blog-teaser">... dann wundern sie sich noch heute.</p>
+      <div class="tags">
+        <div class="tag">books</div>
+        <div class="tag">book</div>
       </div>
     </div>
   </div>
