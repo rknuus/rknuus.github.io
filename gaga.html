@@ -175,7 +175,7 @@
   background-position: center;
   box-shadow: 0 0 60px -24px black;
   overflow: hidden;
-  border: 10px solid #ccc;
+  border: 10px solid #999;
   text-decoration: none;
   display: flex;
   flex-flow: column;
@@ -254,12 +254,10 @@
 
 .podcast-thumbnail {
   position: absolute;
-  padding: 25% 5%;
-}
-
-.podcast-thumbnail img {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 100%;
-  border-radius: 2px;
 }
 
 .podcast-background {
@@ -315,7 +313,7 @@
 
 .book-reference img {
   max-width: 100%;
-  border-radius: 2px;
+  max-height: 100%;
 }
   </style>
 </head>
@@ -358,7 +356,7 @@
     <div class="col-1-post">
       <div class="date">01-Apr-2022</div>
       <div class="talk-reference">
-        <div class="talk-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
+        <div class="talk-thumbnail"><img src="https://i.ytimg.com/vi/pyiKhRmvMF4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBzmzm-9jOsQmuM8LEM7hHD3QhdWw"></div>
       </div>
       <h1 class="blog-title">A wonderful talk about books</h1>
       <p class="blog-teaser">"Lorem ipsum", sagte der Chaschperli und tr&auml;llerte: "Lalalalah".</p>
@@ -371,7 +369,7 @@
       <div class="date">01-Apr-2022</div>
       <div class="podcast-reference">
         <img class="podcast-background" src="https://res.cloudinary.com/hetfy/image/upload/v1603289694/picture_qn3k6k.png">
-        <div class="podcast-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
+        <div class="podcast-thumbnail"><img src="https://wrint.de/wp-content/uploads/2016/05/wrint_geschichtsunterricht_120.jpg"></div> <!--  style="width:200px;height:200px;" -->
       </div>
       <h1 class="blog-title">A wonderful podcast about books</h1>
       <p class="blog-teaser">Und wenn sie nicht gestorben sind...</p>
@@ -382,8 +380,8 @@
     </div>
     <div class="col-1-post">
       <div class="date">01-Apr-2022</div>
-      <div class="book-reference">
-        <img class="book-front" src="https://via.placeholder.com/1080x1440">
+      <div class="book-reference" style="width:198px;height:300px;">
+        <img class="book-front" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1415827328l/23211310.jpg">
       </div>
       <h1 class="blog-title">A wonderful book about books</h1>
       <p class="blog-teaser">... dann wundern sie sich noch heute.</p>
