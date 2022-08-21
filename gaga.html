@@ -13,13 +13,6 @@
 - https://codepen.io/usmonovsardor7770/pen/eKvxLQ
 - https://codepen.io/lyon-etyo/pen/OJmyMGd
 
-and of vinyl record:
-- https://codepen.io/Mdvlprr/pen/NWdvQgJ
-- https://codepen.io/john-ulmer/pen/dypaLrz
-- https://codepen.io/kkanyingi/pen/rNOJeyb
-- https://codepen.io/hetfy/pen/YzWpKEx
-- https://codepen.io/tzzo/pen/QpoBNy
-
 (instead of casette tape:)
 - https://codepen.io/tomhazledine/pen/RwxeVw
 - https://github.com/mrtoxas/cassette-tape-css
@@ -90,6 +83,46 @@ and of vinyl record:
   transform: rotate(90deg); /* just to show more of the reflection */
 }
 
+/* inspired by https://codepen.io/siiron/pen/nBYGoB */
+.book {
+  position: relative;
+  top: 8px;
+  left: calc(320px - 245px + 8px);
+  margin-left: 8px;
+  height: 320px;
+  aspect-ratio: 3/4;
+}
+
+/* borrowed from https://codepen.io/rikanutyy/pen/PEJBxX */
+.book:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #BAC1BA;
+  transform-origin: bottom;
+  transform: skewX(-45deg);
+}
+
+.book:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 5px;
+  height: 100%;
+  background: #92A29C;
+  transform-origin: left;
+  transform: skewY(-45deg);
+}
+
+.book img {
+  max-width: 100%;
+  border-radius: 2px;
+}
+
 /* inspired by https://codepen.io/ekfuhrmann/pen/OJmRVPj */
 .shelfboard {
   position: relative;
@@ -128,8 +161,13 @@ and of vinyl record:
     </div>
     <div class="col-1">
       <div class="vinyl">
-        <img class="podcast-background" src="https://res.cloudinary.com/hetfy/image/upload/v1603289694/picture_qn3k6k.png" alt="Disk">
+        <img class="podcast-background" src="https://res.cloudinary.com/hetfy/image/upload/v1603289694/picture_qn3k6k.png">
         <div class="podcast-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="book">
+        <img class="book-front" src="https://via.placeholder.com/1080x1440">
       </div>
     </div>
   </div>
