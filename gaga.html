@@ -25,7 +25,7 @@
 
 .row {
   width: 80%;
-  height: 300px;
+  height: 400px;
 }
 
 .items {
@@ -137,6 +137,32 @@
   border-radius: 2px;
 }
 
+.infobox {
+  position: relative;
+  top: 12px;
+  width: 300px;
+  height: 320px;
+  margin-left: 16px;
+  transform: skew(1deg, -1deg);
+  background: white;
+  border: 2px groove;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.infobox:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -7px;
+  width: 300px;
+  height: 101%;
+  background: white;
+  transform: skew(-2deg, 0deg);
+  border: 2px groove;
+  z-index: -1;
+}
+
 /* inspired by https://codepen.io/ekfuhrmann/pen/OJmRVPj */
 .shelfboard {
   position: relative;
@@ -192,5 +218,27 @@
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="items">
+    <div class="col-1">
+      <div class="filmframe">
+        <div class="talk-thumbnail"><img src="https://via.placeholder.com/1920x1080"></div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="infobox">
+        <h3>Alle hunderttausend heulende H&ouml;llenhunde</h3>
+      </div>
+    </div>
+  </div>
+  <div class="shelfboard">
+    <div class="shelfboard-top">
+    </div>
+    <div class="shelfboard-front">
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
