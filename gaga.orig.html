@@ -1,0 +1,263 @@
+<html lang="en" class=""><head>
+
+  <meta charset="UTF-8">
+  <title>Shelf Demo</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <style>
+/* To visualize the outline of all elements uncomment the following code: */
+/** {
+    outline: 1px solid red;
+} */
+
+/* borrowed from https://newbedev.com/html-flexbox-only-one-item-per-row-code-example */
+.blog-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 3000px;
+  min-height: 600px;
+  height: 1200px;  /* 600px * # of rows */
+  justify-content: center;
+  position: relative;
+  padding: 50px;
+  box-sizing: border-box;
+  /*pointer-events: none;*/
+}
+
+.blog-list-row {
+  flex: 1 100%;
+  height: 400px;
+}
+
+.shelf {
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+  position: relative;
+  height: 0px;
+  top: 400px;
+  box-sizing: border-box;
+  border-bottom: 16px solid #f3f3f3;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  /*pointer-events: all;*/
+}
+
+/* shelf front-side */
+.shelf::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  background: linear-gradient(90deg, #fafafa 0%, #ffffff 100%);
+  height: 26px;
+  width: calc(100% + 40px);
+  box-shadow: 0px -1px 6px rgba(0, 0, 0, 0.05), 0px 4px 16px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5%;
+  width: 80%;
+  margin: auto;
+  margin-left: 20px;
+  /*margin-right: 20px;*/
+  transform: translateY(-100%);
+  padding: 0 0 2px;
+  z-index: -1;
+  position: relative;
+  top: 10px;
+}
+
+.column {
+/*  width: 100%;
+  border-radius: 3px 0.5px 0.5px 3px;
+  aspect-ratio: 115/180;
+  background: var(--bg-image) center center/cover no-repeat, #f3f3f3;*/
+  z-index: -1;
+}
+
+/* borrowed from https://codepen.io/HenrikFricke/pen/GRNYrXK */
+:root {
+  --font-family-primary: "Vollkorn", serif;
+  --font-family-secondary: "PT Sans", sans-serif;
+  --font-size-title: 32px;
+  --line-height-title: 1.4;
+  --font-size-caption: 14px;
+  --line-height-caption: 1.2;
+  --color-text: #222022;
+  --color-highlight-primary: #FFEF7E;
+  --color-highlight-secondary: #B7F9E9;
+  --border-radius-primary: 32px;
+}
+@media (min-width: 1000px) {
+  :root {
+    --font-size-title: 40px;
+  }
+}
+
+/*body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}*/
+
+.card {
+  position: relative;
+  top: 40px; /* TODO(KNR): yuck */
+  max-width: 800px;
+  border-radius: var(--border-radius-primary);
+  box-shadow: 24px 24px 80px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer; /* TODO(KNR): has no effect */
+}
+@media (min-width: 1000px) {
+  .card {
+    width: 800px;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+}
+
+.card__image {
+  width: 100%;
+  max-height: 300px;
+  border-radius: var(--border-radius-primary);
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 18px;
+}
+@media (min-width: 1000px) {
+  .card__image {
+    width: 45%;
+    max-height: none;
+    min-height: 400px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .card__content {
+    width: 55%;
+    padding-left: 40px;
+  }
+}
+
+.card__date {
+  display: block;
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+@media (min-width: 1000px) {
+  .card__date {
+    margin-bottom: 8px;
+  }
+}
+
+.card__title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-title);
+  line-height: var(--line-height-title);
+  color: var(--color-text);
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+  background-image: linear-gradient(90deg, var(--color-highlight-primary), var(--color-highlight-secondary));
+  background-size: 100% 42%;
+  background-repeat: no-repeat;
+  background-position: 0 85%;
+  padding: 0 4px;
+  margin-left: -4px;
+}
+
+/* TODO(KNR): study effects of cards:
+- https://codepen.io/ChynoDeluxe/pen/bdXeqQ
+- https://codepen.io/choogoor/pen/YWBxrg
+- https://codepen.io/daiquiri/pen/GWpPKP
+- https://codepen.io/jmegs/pen/opbyXg
+- https://codepen.io/Booligoosh/pen/mKPpQp
+- https://codepen.io/usmonovsardor7770/pen/eKvxLQ
+- https://codepen.io/lyon-etyo/pen/OJmyMGd
+
+and of cassette:
+- https://codepen.io/tomhazledine/pen/RwxeVw
+- https://github.com/mrtoxas/cassette-tape-css
+
+and of video casette:
+- https://codepen.io/kboedges/pen/xJGmjM
+*/
+  </style>
+</head>
+
+<body>
+
+<div class="blog-list">
+  <div class="blog-list-row">
+    <div class="shelf">
+      <div class="columns">
+        <div class="column">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1615147342761-9238e15d8b96?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" class="card__image" alt="brown couch" />
+            <div class="card__content">
+              <time datetime="2021-03-30" class="card__date">30 März 2021</time>
+              <span class="card__title">Duis autem vel eum iriure dolor in hend in vulputate<span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1615147342761-9238e15d8b96?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" class="card__image" alt="brown couch" />
+            <div class="card__content">
+              <time datetime="2021-03-30" class="card__date">30 März 2021</time>
+              <span class="card__title">Lorem impsum lalala<span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1615147342761-9238e15d8b96?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" class="card__image" alt="brown couch" />
+            <div class="card__content">
+              <time datetime="2021-03-30" class="card__date">30 März 2021</time>
+              <span class="card__title">De Chaschperli, tritra tralala<span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blog-list-row">
+    <div class="shelf">
+      <div class="columns"> 
+        <div class="column">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1615147342761-9238e15d8b96?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" class="card__image" alt="brown couch" />
+            <div class="card__content">
+              <time datetime="2021-03-30" class="card__date">30 März 2021</time>
+              <span class="card__title">Duis autem vel eum iriure dolor in hend in vulputate<span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>
